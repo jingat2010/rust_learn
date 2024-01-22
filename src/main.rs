@@ -4,13 +4,40 @@ fn main() {
     // hello_world()
     // variable_change()
     // variable_shadowing()
-    basic_type();
+    // basic_type();
     // float_type()
+    // nan_type();
+    range_type()
+}
+
+fn as_type_transfer(){
+    /**
+    as 类型转换
+    原始类型转换为其他原始类型
+    指针转化成地址
+    地址转化成指针
+    指针转换成其他指针
+     */
+
+}
+fn range_type(){    // 序列只允许数字或者字符类型，原因是他们可以连续，
+    for i in 1..=5 {
+        println!("i is:{}",i);
+    }
+}
+fn nan_type(){ // 所有跟NaN交互的结果都是一个NaN，
+    let x=(-42.4_f32).sqrt();
+    if x.is_nan() {
+        println!("x is a Nan");
+        return;
+    }
+    println!("x is a nan");
 }
 
 fn float_type(){
     let x=2.0;  // 默认为f64，精度更高，双精度
     let y:f32=3.0;   // 手动指定f32，单精度，这两者运行速度几乎没差别，
+    let z=22_f32;
 }
 fn basic_type(){
     // 数值类型 i8 i16... u8 u16...f32 f64
@@ -28,6 +55,7 @@ fn basic_type(){
     二进制	    0b1111_0000
     字节 (仅限于 u8)	b'A'
      */
+    // assert!(0.1+0.2=0.3); // 会panic
     let x=98_222; //下划线 _ 只是为了提高可读性而存在,1000000可以写成1_000_000
     let y=0xff;
     let z=0o77;
