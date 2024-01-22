@@ -1,0 +1,16 @@
+[package]
+name = "rust_learn"
+version = "0.1.0"
+edition = "2021"
+
+# 项目数据表述文件，存储项目元配置信息
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# 4种导包形式
+#rand="0.3"
+#hammer={version = "0.5.0"}
+#color={git = "https://github.com/bjz/color-rs" }
+#geometry={path = "crates/geometry" }
+#time={registry = "ustc"}
