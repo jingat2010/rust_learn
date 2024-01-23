@@ -1,3 +1,4 @@
+use std::fmt::Debug;
 use std::mem::zeroed;
 
 fn main() {
@@ -8,7 +9,66 @@ fn main() {
     // float_type()
     // nan_type();
     // range_type()
-    chat_type()
+    // chat_type()
+    // owner_()
+    demo001()
+}
+fn demo004(){
+    unimplemented!()
+}
+fn demo003(){
+    let mut s = String::from("hello");
+
+    let r1 = &s; // 没问题
+    {
+        let r2 = &s; // 没问题
+    }
+    {
+        let r3 = &mut s; // 大问题
+    }
+
+}
+
+
+/**
+引用 & 借用
+ 同一作用域，特定数据只能有一个可变引用：
+这种限制的好处就是使 Rust 在编译期就避免数据竞争，数据竞争可由以下行为造成：
+两个或更多的指针同时访问同一数据
+至少有一个指针被用来写入数据
+没有同步数据访问的机制
+ */
+
+fn demo001(){
+    let mut s =String::from("hello");
+    let r1=&mut s;
+    let r2=&mut s;
+    // println!("r1 is:{r1}");
+    println!("r2 is:{r2}"); // 同一作用域，特定数据只能有一个可变引用：
+    // println!("s is:-->{}",s);
+}
+fn demo002(s: &String)->usize{
+    return s.len();
+}
+/**
+ 所有权
+Rust 中每一个值都被一个变量所拥有，该变量被称为值的所有者
+一个值同时只能被一个变量所拥有，或者说一个值只能拥有一个所有者
+当所有者(变量)离开作用域范围时，这个值将被丢弃(drop)
+ */
+fn owner_(){
+    let mut s=String::from("hello");
+    s.push_str(",world");
+    // let s2=s;       //  s 赋值给s2之后，s则不再有效
+    let s2=s.clone();   // 克隆一份数据给s2
+    println!("s2 is:{}",s2);
+    println!("s is {},",s);
+    let x:&str="hello";
+    let y=x;
+    println!("x is {}, y is {}",x,y);
+}
+fn report<T:Debug>(item:T){
+    println!("the item is-->{:?}",item);
 }
 
 /**
@@ -19,8 +79,13 @@ fn main() {
 fn expression_fu_demo001(a:i32,b:i32)->i32{
     let a=a+1;  //语句    statement
     let b=b+1;  //语句    statement
-     a+b             //表达式   expressio
+    a+b             //表达式   expressio
+
 }
+fn expression_fn_demo002(){
+    ()
+}
+
 
 fn chat_type(){
     let x='n';
