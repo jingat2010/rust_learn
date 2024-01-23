@@ -1,1 +1,1 @@
-git config --global http.proxy 127.0.0.1:7890
+rust 入门学习
