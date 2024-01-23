@@ -7,19 +7,38 @@ fn main() {
     // basic_type();
     // float_type()
     // nan_type();
-    range_type()
+    // range_type()
+    chat_type()
 }
 
-fn as_type_transfer(){
-    /**
-    as 类型转换
-    原始类型转换为其他原始类型
-    指针转化成地址
-    地址转化成指针
-    指针转换成其他指针
-     */
-
+/**
+语句会执行一些操作但是不会返回一个值，而表达式会在求值后返回一个值
+它们完成了一个具体的操作，但是并没有返回值，因此是语句。
+表达式会进行求值,然后返回一个值，例如 5+6
+ */
+fn expression_fu_demo001(a:i32,b:i32)->i32{
+    let a=a+1;  //语句    statement
+    let b=b+1;  //语句    statement
+     a+b             //表达式   expressio
 }
+
+fn chat_type(){
+    let x='n';
+    println!("字符{}占用的空间大小为{}",x,std::mem::size_of_val(&x));
+}
+
+// #[warn(dead_code)]
+// fn as_type_transfer(){
+//     /**
+//     as 类型转换
+//     原始类型转换为其他原始类型
+//     指针转化成地址
+//     地址转化成指针
+//     指针转换成其他指针
+//      */
+//     //
+//
+// }
 fn range_type(){    // 序列只允许数字或者字符类型，原因是他们可以连续，
     for i in 1..=5 {
         println!("i is:{}",i);
