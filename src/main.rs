@@ -11,16 +11,38 @@ fn main() {
     // chat_type()
     // owner_()
     // demo001()
-    string_slice_demo001()
-
+    // string_slice_demo001()
+    string_delete();
 }
+
+#[warn(unused_variables)]
+fn string_delete() {
+    let mut string_pop = String::from("rust pop 中文");
+    string_pop.pop();
+    print!("string_pop is:{}",string_pop);
+    let mut string_remove = String::from("测试remove方法");
+    // drop(string_pop); //这里手动释放内存
+    print!("string_remove len is:{}",std::mem::size_of_val(string_remove.as_str()));
+    string_remove.remove(0);
+    print!("after delete the string_remove len is:{}",std::mem::size_of_val(string_remove.as_str()));
+    let byte_escape = "I'm writing \x52\x75\x73\x74!";
+    print!("byte_escape is:{}",byte_escape);
+    let n="\u{000A}";
+    print!("n is:{}",n);
+}
+
 fn string_slice_demo001() {
-    let s=String::from("abcdefg");
+    let s=String::from("abcdefgcdcd");
     let s1=&s[0..2];   // 不包括右边
     print!("s1 is:{}",s1);
     let a=String::from("这是一个字符串");
     let s2=&a[0..3];
     print!("s2 is:{}",s2);
+    let new_s=s.replace("cd", " CD ");
+    dbg!(new_s);
+    let new_s2=s.replacen("cd", " CD ", 2);
+    dbg!(new_s2);
+    
 }
 
 type File =String;
