@@ -1,5 +1,4 @@
 use std::fmt::Debug;
-use std::mem::zeroed;
 
 fn main() {
     // hello_world()
@@ -11,16 +10,31 @@ fn main() {
     // range_type()
     // chat_type()
     // owner_()
-    demo001()
+    // demo001()
+    string_slice_demo001()
+
+}
+fn string_slice_demo001() {
+    let s=String::from("abcdefg");
+    let s1=&s[0..2];   // 不包括右边
+    print!("s1 is:{}",s1);
+    let a=String::from("这是一个字符串");
+    let s2=&a[0..3];
+    print!("s2 is:{}",s2);
 }
 
-fn demo005(){
-    unimplemented!()
+type File =String;
+fn open(f:&mut File)->bool {
+    true
+}
+// ! 代表这是一个发散函数，不返回任何值，包括（）
+fn  read(f:&mut File,save_to:&mut Vec<u8>)->! {
+    unimplemented!();
+    todo!();
 }
 
-fn demo004(){
-    unimplemented!()
-}
+
+#[warn(dead_code)]
 fn demo003(){
     let mut s = String::from("hello");
 
