@@ -12,8 +12,25 @@ fn main() {
     // owner_()
     // demo001()
     // string_slice_demo001()
-    string_delete();
+    // string_delete();
+    // tup_demo001();
+    // read_text_file();
+    print_struct();
 }
+#[derive(Debug)]
+struct Rectanble{
+    width: u32,
+    height: u32,
+}
+
+fn print_struct() {
+    let rectangle=Rectanble{
+        width: 10,
+        height: 20,};
+    print!("the rectangle is:{:#?}",rectangle);
+}
+struct AlwaysEqual; // 单元结构体，只关心他的行为，不关心他里面的字段数据
+
 
 #[warn(unused_variables)]
 fn string_delete() {
