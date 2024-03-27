@@ -17,6 +17,15 @@ fn main() {
     // read_text_file();
     print_struct();
 }
+
+fn struct_001() {
+    let mut rectangle=Rectanble{
+        width: 10,
+        height: 20,};
+        rectangle.width=100;
+        print!("the rectangle is:{:#?}",rectangle);
+}
+
 #[derive(Debug)]
 struct Rectanble{
     width: u32,
